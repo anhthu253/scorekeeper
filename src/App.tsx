@@ -30,15 +30,15 @@ function App() {
     setPlayers([])
   }
   return (
-    <div>
+    <div className="h-screen relative">
     <div className="grid grid-cols-4 grid-flow-row gap-y-1 my-2 place-items-center">
       {players.map(player => <Player key={player.id} name={player.name} score={player.score} inscreaseScore={()=>increaseScore(player.id)} reduceScore={()=>reduceScore(player.id)}></Player>)}
    </div>
    <div className="mx-auto my-2 w-28 h-20 grid grid-rows-2 gap-y-1">
-    <button className="border-solid border-2 rounded-lg" onClick={resetScores}>Reset scores</button>
-    <button className="border-solid border-2 rounded-lg" onClick={resetAll}>Reset all</button>
+    <button className="rounded-lg bg-gray-300" onClick={resetScores}>Reset scores</button>
+    <button className="rounded-lg bg-gray-300" onClick={resetAll}>Reset all</button>
     </div>
-    <form className="flex flex-col gap-y-1 p-4" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-y-1 p-4 absolute bottom-2 left-0 right-0" onSubmit={handleSubmit}>
       <label htmlFor='player'>Add player:</label>
       <input id="player" name="player" type="text" placeholder='Player name' className="border-solid border-2 p-2"/>
     </form>
